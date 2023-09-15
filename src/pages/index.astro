@@ -1,6 +1,8 @@
 ---
 import Layout from '../layouts/default.astro'
 import heroImg from '../Images/sandwich-hero.jpg'
+import ShopItems from '../components/shop-items.astro';
+import newsletterImg from '../Images/newsletter.jpg'
 ---
 
 <Layout>
@@ -21,7 +23,31 @@ import heroImg from '../Images/sandwich-hero.jpg'
 	/>
 
 </section>
+<section class="block products">
+	<ShopItems count={3} addToCart={false} />
+	<p class="shop-link">
+		<a href="/shop">Show All Sandwich Kits &rarr;</a>
+	</p>
+</section>
+<section class="block newsletter">
+	<img src={newsletterImg} alt="A sandwich with a bite taken out of it." />
+	<h3>Prefer your sandwiches to go</h3>
+	<p>
+		Sign up for our newsletter and get the latest news on new sandwiches and
+		sandwich accessories before anyone else.
+	</p>
+	<form method="post" class="newsletter-form" action="/newslatter">
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" placeholder="Your name" required />
+        <label for="email">Email</label>
+        <input type="email" name="email" id="email" placeholder="Your email" required />
+
+        <button type="submit" class="big-link">Subscribe</button>
+
+    </form>
+</section>
 </Layout>
+
 
 <style>
 .hero {
